@@ -1,0 +1,15 @@
+---
+- name: Listen for events on kafka
+  hosts: all
+  
+  sources:
+    - ansible.eda.kafka:
+        host: kafka
+        port: 9092
+        topic: my-topic
+
+  rules:
+    - name: Look for foo
+      condition: event.body.message == "foo"
+      action:
+        debug:
