@@ -9,6 +9,7 @@
 
   rules:
     - name: Look for foo
+      # https://www.freedesktop.org/software/systemd/man/latest/systemd.journal-fields.html
       condition: event.journald.message contains "foo"
       action:
-        run_job_template: Fix aide
+        run_job_template: Run foo
