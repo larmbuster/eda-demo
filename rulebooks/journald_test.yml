@@ -1,0 +1,13 @@
+---
+- name: Listen for events on journald
+  hosts: all
+
+  sources:
+    - ansible.eda.journald:
+        match: "ALL"
+
+  rules:
+    - name: Look for foo
+      condition: true
+      action:
+        debug:
