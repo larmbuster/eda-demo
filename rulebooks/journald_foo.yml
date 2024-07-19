@@ -3,12 +3,12 @@
   hosts: all
 
   sources:
-      # https://github.com/ansible/event-driven-ansible/blob/main/extensions/eda/plugins/event_source/journald.py
+    # https://github.com/ansible/event-driven-ansible/blob/main/extensions/eda/plugins/event_source/journald.py
     - ansible.eda.journald:
         match: "ALL"
 
   rules:
     - name: Look for foo
-      condition: event.body.message == "foo"
+      condition: event.body.message contains "foo"
       action:
         run_job_template: Fix aide
