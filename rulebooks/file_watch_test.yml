@@ -1,0 +1,14 @@
+---
+- name: Watch the File
+  hosts: all
+
+  sources:
+    - ansible.eda.file_watch:
+        path: /tmp/test.txt
+        recursive: false
+
+  rules:
+    - name: EDA | Ping Test
+      condition: event.type == "FileModifiedEvent"
+      action:
+        debug:
