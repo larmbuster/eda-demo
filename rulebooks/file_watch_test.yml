@@ -8,7 +8,7 @@
         recursive: false
 
   rules:
-    - name: EDA | Ping Test
+    - name: EDA file_watch test
       condition: event.type == "FileModifiedEvent"
       action:
         debug:
